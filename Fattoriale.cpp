@@ -5,6 +5,10 @@ using namespace std;
 
 #define MAXEL 100
 
+Fattoriale::Fattoriale()
+{
+}
+
 void Fattoriale::start()
 {
 	ti = time(0);
@@ -14,6 +18,7 @@ void Fattoriale::start()
 void Fattoriale::stop()
 {
 	tf = time(0);
+
 }
 
 int Fattoriale::scriviCron()
@@ -24,58 +29,42 @@ int Fattoriale::scriviCron()
 		return tf - ti;
 }
 
-Fattoriale::Fattoriale()
-{
-}
 
-string Fattoriale::getSommaTot()
-{
-	//da fare: copia incolla diventa array
-	int numEl = 0; 
-	//per adesso = 15511210043330985984000000 return in questo caso == 72
-
-	cout << "Inserire numero elementi> " << endl;
-	cin >> numEl;
-
-	int v[MAXEL];
-	int j = 0;
-	int somma = 0;
-
-	//chiede
-	for (size_t i = 0; i < numEl; i++) {
-		cout << "asd: " << endl;
-		cin >> v[i];
-		j++;
-		cout << "Contatore: " << j << endl;
-	}
-
-	//scrive
-	for (size_t i = 0; i < numEl; i++) {
-		cout << "Numero > " << v[i];
-		somma += v[i];
-	}
-
-	return "\n\n\n\n\Somma totale> " + to_string(somma);
-}
-
-int Fattoriale::Calcolo()//fatto con libreria> boost
+cpp_int Fattoriale::Calcolo()//fatto con libreria> boost
 {
 
 	int numero = 0;
 	cout << "Inserire numero: " << endl;
 	cin >> numero;
+	
 	start();
-
+	
 	cpp_int fattoriale = 1;
 
 	for (int i = 1; i <= numero; i++) 
 	{
 		fattoriale *= i;
+		//cout << time << endl; esce in hex lol
 	}
 
-	cout << "\nFattoriale di > " << numero << ": " << fattoriale << endl;
-	cout << "\nNote: puoi fare CTRL + C";
+	/*cout << "\nFattoriale di > " << numero << ": " << fattoriale << endl;
+	cout << "\nNote: puoi fare CTRL + C" << endl;*/
+	
+	return fattoriale;
+}
 
+cpp_int Fattoriale::Scrivifatt()
+{
+
+    cpp_int ret = Calcolo();
+	cout << "***************FATTORIALE*****************>>>>" << endl;
+	cout << ret;
+
+	ofstream fout("fattoriali.txt", ios::app);
+
+	fout << ret;
+	fout << endl << endl;
+	fout.close();
 	return 0;
 }
 
@@ -94,7 +83,7 @@ int Fattoriale::Calcolo()//fatto con libreria> boost
 //
 //	cout << "Elapsed time in microseconds: "
 //		<< chrono::duration_cast<chrono::microseconds>(end - start).count()
-//		<< " µs" << endl;
+//		<< " Âµs" << endl;
 //
 //	cout << "Elapsed time in milliseconds: "
 //		<< chrono::duration_cast<chrono::milliseconds>(end - start).count()
