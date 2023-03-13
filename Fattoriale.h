@@ -6,6 +6,8 @@
 #include <chrono>
 #include <thread>
 #include <time.h>
+#include <fstream>
+#include <ctime>
 //#include <unistd.h> non funziona, tanto era solo per sleep();
 using namespace std;
 using namespace boost::multiprecision;
@@ -21,8 +23,8 @@ public:
 	void stop();
 	int scriviCron();
 	Fattoriale();
-	string getSommaTot();
-	int Calcolo();
-	//int tempo();
+	cpp_int Calcolo();
+	cpp_int Scrivifatt();
+	//string globale; non puoi
 };
 
