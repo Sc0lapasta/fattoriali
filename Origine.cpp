@@ -1,31 +1,24 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <ctime>
+#include "CTesto.h"
 #include "Fattoriale.h"
+using namespace std;
 
-int main()
+
+
+int main() //programma per scrivere in un file, con orologio data, ora e anno
 {
-	//in pratica > aspetta 5 secondi, poi esegue il resto (timer che quando finisce fa partire roba dopo)
-	//quasi inutile
-	//FATTO CON  <chrono>
+	Fattoriale asda = Fattoriale();
+	asda.Calcolo();
+	asda.stop();
+	asda.Scrivifatt();
+	cout << "\nTempo trascorso in secondi: " << asda.scriviCron() << "\n\n\n\n\n\n\n";
 
-	/*chrono::seconds five_seconds = chrono::seconds(5);
-	this_thread::sleep_for(five_seconds);
-	Fattoriale asd = Fattoriale();*/
-	
-	//asd.Calcolo(); //non dovrebbe funzionare ma funziona
-	//asd.tempo();
-	//cout << asd.getFattoriale();
+	CTesto asd = CTesto();
 
-	//FATTO CON <time.h>:
-	//asd.start();
-	//asd.stop();
-	//quello che mi serve...
-
-	Fattoriale asd = Fattoriale();
-
-	
-	asd.Calcolo();
-
-	asd.stop();
-	cout << "\nTempo trascorso in secondi: " << asd.scriviCron() << "\n\n\n\n\n\n\n";
-
+	cout << asd.Orologio(); //scrivi ora, data e anno
+	cout << asd.scriviIn(); //scrivi stringa in cin
 	return 0;
 }
