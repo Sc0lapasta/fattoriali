@@ -12,7 +12,7 @@
 using namespace std;
 using namespace boost::multiprecision;
 
-
+//morro linux
 
 class Fattoriale
 {
